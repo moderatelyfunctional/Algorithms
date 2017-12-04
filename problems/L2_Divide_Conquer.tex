@@ -69,7 +69,13 @@
 \begin{enumerate}
 	\item Suppose that the map is divided into a square grid, where each square has dimensions $\frac{1}{2} \times \frac{1}{2}$. Why must the FCC reject the set of requests if two requests are in, or on the boundary of, the same square? \\
 	\par{\textbf{Solution:} The maximum distance between two requests within a $\frac{1}{2} \times \frac{1}{2}$ square is $\frac{\sqrt{2}}{2}$ which is $< 1$.}
-	
+	\item Design an $O(n\log{n})$ algorithm for the FCC to determine whether the pile of requests contains two that are within Euclidean distance 1 of each other; if so, the algorithm should also return an example pair. \\
+	\par{\textbf{Solution:} The tricky part of the algorithm is how to merge the subproblems.}
+	\par{\textbf{Divide:} Through $L\_x$, compute the midpoint to divide the array into two subsets of size $n/2$. Then, divide the elements in $L\_y$ accordingly into two subsets.}
+	\par{\textbf{Conquer:} If a subset contains $\leq 2$ requests, check whether the two requests collide. Otherwise, divide the subset further.}
+	\par{\textbf{Merge:} Let $S$ be the intersection region between two subsets, with width 2 centered on the vertical boundary dividing the two regions. Sort the elements in the two subsets into $S$ by $y$ values, and for each element of $S$, check if the request intersects with any of the succeeding $7$ requests in $S$. If they do, return that pair.}
+	\par{\textbf{Correctness:} For any subsets containing $\leq 2$ requests, our algorithm checks whether the two requests collide. If there's no collision, then a request can intersect with 7 succeeding requests. To prove that, first, consider that if we divide $S$ into squares of size $1/2$. There's only one request in each square, otherwise our divide step would have returned a collision.}
+	\par{For every request $r \in L$, another request within distance 1 is in the $2 \times 1$ rectangle spanning the boundary. There are a total of 8 requests, and excluding $r$, there are 7. Since $L$ is sorted by $y$ values, the rectangle shifts depending on what the current $y$ value is.}
 \end{enumerate}
 
 

@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1512353293 "L2_Divide_Conquer.tex" "L2_Divide_Conquer.pdf" "L2_Divide_Conquer" 1512353293
+["pdflatex"] 1512356667 "L2_Divide_Conquer.tex" "L2_Divide_Conquer.pdf" "L2_Divide_Conquer" 1512356668
   "/usr/local/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -82,9 +82,9 @@
   "/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1432479641 1764542 91654ba72bdb667e84ea24f076ae16d8 ""
   "/usr/local/texlive/2015/texmf-var/web2c/pdftex/pdflatex.fmt" 1432479681 3849859 39a7d258195bde2394e244961601fbc5 ""
   "/usr/local/texlive/2015/texmf.cnf" 1432479636 577 0d611272082f3cdb8e80e09a3c69cf07 ""
-  "L2_Divide_Conquer.aux" 1512353293 8 a94a2480d3289e625eea47cd1b285758 ""
-  "L2_Divide_Conquer.tex" 1512353293 6827 ab854a4347f7a7223b7fadb6a3475578 ""
+  "L2_Divide_Conquer.aux" 1512356668 8 a94a2480d3289e625eea47cd1b285758 ""
+  "L2_Divide_Conquer.tex" 1512356666 8536 42c53348ba95e733b074af1205d44d70 ""
   (generated)
+  "L2_Divide_Conquer.log"
   "L2_Divide_Conquer.aux"
   "L2_Divide_Conquer.pdf"
-  "L2_Divide_Conquer.log"
