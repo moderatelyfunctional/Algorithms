@@ -63,6 +63,14 @@
 	\item Now suppose that the graph is arbitrary, not necessarily acyclic. Give the fastest correct algorithm you can for solving the problem. 
 	\par{\textbf{Solution:} The cyclic nature of the graph breaks our previous algorithms. The problem is equivalent to the Maximum Independent Set Problem which is NP-Complete. Therefore, the best we can do is to try every combination of vertices, and for each combination, track its profit. The algorithm would run in $O(2^V|E|)$ time.}
 \end{enumerate}
+\subsection*{Problem 1-2 Radio Frequency Assignment}
+\par{Prof. Wheeler at the Federal Communications Commission (FCC) has a huge pile of requests from radio stations in the Continental U.S. to transmit on radio frequency 88.1 FM.}
+\par{The FCC is happy to grant all the requests, provided that no two of the requesting locations are within Euclidean distance 1 of each other (distance 1 might mean, say, 20 miles). However, if any are within distance 1, Prof. Wheeler will get annoyed and reject the entire set of requests. Suppose that each request for frequency 88.1 FM consists of some identifying information plus $(x, y)$ coordinates of the station location. Assume that no two requests have the same $x$ coordinate, and likewise no two have the same $y$ coordinate. The input includes two sorted lists, $L\_x$ of the requests sorted by $x$ coordinate and $L\_y$ of the requests sorted by $y$ coordinate.}
+\begin{enumerate}
+	\item Suppose that the map is divided into a square grid, where each square has dimensions $\frac{1}{2} \times \frac{1}{2}$. Why must the FCC reject the set of requests if two requests are in, or on the boundary of, the same square? \\
+	\par{\textbf{Solution:} The maximum distance between two requests within a $\frac{1}{2} \times \frac{1}{2}$ square is $\frac{\sqrt{2}}{2}$ which is $< 1$.}
+	
+\end{enumerate}
 
 
 \end{document}
