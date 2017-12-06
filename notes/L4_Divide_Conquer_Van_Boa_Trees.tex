@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[
+    left=2.5cm,
+    right=2.5cm,
+    top=4cm,
+    bottom=4cm
+]{geometry}
+\usepackage{courier}
+\usepackage{listings}
+\usepackage{tocloft}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+% \usepackage{palatino}
+
+% \renewcommand{\familydefault}{\sfdefault}
+
+\lstset{basicstyle=\footnotesize\ttfamily, breaklines=true, numbers=left, language=Python, tabsize=2, aboveskip=15pt, belowskip=15pt}
+
+% Floor and Ceiling
+\newcommand\floor[1]{\lfloor#1\rfloor}
+\newcommand\ceil[1]{\lceil#1\rceil}
+
+% Github style syntax highlighting
+\newcommand{\highlight}{\colorbox{orange!60}}
+
+% Does anyone like bullet points?
+\def\labelitemi{--}
+
+\setlength{\headheight}{15.0pt}
+\pagestyle{fancy}
+\lhead{6.046 Lecture 4: DNC Van Emde Boas Trees}
+\chead{Jing Lin.}
+\rhead{Dec. 5 2017}
+
+\begin{document}
+\section*{Van Emde Boas Trees}
+\par{\textbf{Goal:} maintain n elements among ${0, 1, ..., u - 1}$ subject to Insert, Delete, Successor in $O(\log{\log{u}}$ time.}
+\par{In applications, such as in network routers, $u$ is typically $32$ or $64$ bits.}
+\subsection*{Intuition}
+\par{Let's binary search on the height of a tree, which is itself $O(\log{u})$.}
+\begin{align*}
+T(k) &= T(k/2) + O(1) \\
+&= O(\log{k}) \\
+T(\log{u}) &= T(\log{u}/2) + 1 \\
+T'(u) &= T'(\sqrt{u}) + O(1) \\
+&= O(\log{\log{u}})
+\end{align*}
+\par{Through the substitution method, one can show that the recurrence with $\sqrt{u}$ is indeed $O(\log{\log{u}})$.}
+\par{First, let's try a \textbf{bit vector}, an array of size $u$ where $0$ denotes absence and $1$ denotes presence.}
+
+
+
+\end{document}
+
+
+
+
+
+
