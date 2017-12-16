@@ -69,24 +69,15 @@ class Proto_Van_Emde:
             if x == x_index and self.elts[e_index]:
                 return e_index
             return None
-
-            # if find_pred:
-            #     if x == 1 and self.elts[0] == 1:
-            #         return 0
-            #     return None
-            # else:
-            #     if x == 0 and self.elts[1] == 1:
-            #         return 1
-            #     return None
-
         offset = self.cluster[self.high(x)].__find_pred_succ(self.low(x), find_pred)
         if offset != None:
             return self.index(self.high(x), offset)
-        succ_cluster = self.summary.__find_pred_succ(self.high(x), find_pred)
-        if succ_cluster == None:
+        n_c_index = self.summary.__find_pred_succ(self.high(x), find_pred)
+        if n_c_index == None:
             return None
-        offset = self.cluster[succ_cluster].maximum() if find_pred else self.cluster[succ_cluster].minimum()
-        return self.index(succ_cluster, offset)
+        n_c = self.cluster[n_c_index]
+        offset = n_c.maximum() if find_pred else n_c.minimum()
+        return self.index(n_c_index, offset)
 
 
     def __find_min_max(self, find_min=True):
