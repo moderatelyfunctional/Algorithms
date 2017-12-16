@@ -1,4 +1,5 @@
 import math
+import logging
 
 # Implementation is written assuming Python 3.6.1
 
@@ -94,20 +95,3 @@ class Proto_Van_Emde:
             return None
         offset = self.cluster[c_index].__find_min_max(find_min)
         return self.index(c_index, offset)
-
-p_ve = Proto_Van_Emde(16)
-
-p_ve.insert(8)
-p_ve.insert(11)
-p_ve.insert(14)
-#p_ve.insert(15)
-#print(p_ve.member(8))
-#print(p_ve.member(10))
-#print(p_ve.member(15))
-print(p_ve.minimum())
-print(p_ve.maximum())
-
-print("The successor to 9 is {}".format(p_ve.successor(9)))
-print("The predecessor to 14 is {}".format(p_ve.predecessor(14)))
-
-
