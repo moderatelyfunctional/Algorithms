@@ -50,7 +50,40 @@ class Proto_Van_Emde:
             self.summary.insert(self.high(x))
             self.cluster[self.high(x)].insert(self.low(x))
 
-    def __min_max_helper(self, find_min=True):
+    def minimum(self):
+        return self.__find_min_max(True)
+
+    def maximum(self):
+        return self.__find_min_max(False)
+
+    def predecessor(self, x):
+        return self.__find_pred_succ(x, True)
+
+    def successor(self, x):
+        return self.__find_pred_succ(x, False)
+
+    def __find_pred_succ(self, x, find_pred=True):
+        if self.u == 2:
+            if find_pred:
+                if x == 1 and self.elts[0] == 1:
+                    return 0
+                return None
+            else:
+                if x == 0 and self.elts[1] == 1:
+                    return 1
+                return None
+
+        offset = self.cluster[self.high(x)].__find_pred_succ(self.low(x), find_pred)
+        if offset != None:
+            return self.index(self.high(x), offset)
+        succ_cluster = self.summary.__find_pred_succ(self.high(x), find_pred)
+        if succ_cluster == None:
+            return None
+        offset = self.cluster[succ_cluster].maximum() if find_pred else self.cluster[succ_cluster].minimum()
+        return self.index(succ_cluster, offset)
+
+
+    def __find_min_max(self, find_min=True):
         if self.u == 2:
             first_elt = 0 if find_min else 1
             second_elt = 1 if find_min else 0
@@ -59,28 +92,25 @@ class Proto_Van_Emde:
             if self.elts[second_elt]:
                 return second_elt
             return None
-        c_index = self.summary.__min_max_helper(find_min)
+        c_index = self.summary.__find_min_max(find_min)
         if c_index == None:
             return None
-        offset = self.cluster[c_index].__min_max_helper(find_min)
+        offset = self.cluster[c_index].__find_min_max(find_min)
         return self.index(c_index, offset)
-
-    def minimum(self):
-        return self.__min_max_helper(True)
-
-    def maximum(self):
-        return self.__min_max_helper(False)
 
 p_ve = Proto_Van_Emde(16)
 
-#for i in range(16):
-#    s_index = p_ve.high(i)
-#    c_index = p_ve.low(i)
-#    assert(i == p_ve.index(s_index, c_index))
-
-p_ve.insert(10)
-p_ve.insert(15)
-print(p_ve.member(8))
+p_ve.insert(8)
+p_ve.insert(11)
+p_ve.insert(14)
+#p_ve.insert(15)
+#print(p_ve.member(8))
+#print(p_ve.member(10))
+#print(p_ve.member(15))
 print(p_ve.minimum())
 print(p_ve.maximum())
+
+print("The successor to 9 is {}".format(p_ve.successor(9)))
+print("The predecessor to 14 is {}".format(p_ve.predecessor(14)))
+
 
