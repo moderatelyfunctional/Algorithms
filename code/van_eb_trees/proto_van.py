@@ -64,14 +64,20 @@ class Proto_Van_Emde:
 
     def __find_pred_succ(self, x, find_pred=True):
         if self.u == 2:
-            if find_pred:
-                if x == 1 and self.elts[0] == 1:
-                    return 0
-                return None
-            else:
-                if x == 0 and self.elts[1] == 1:
-                    return 1
-                return None
+            x_index = 1 if find_pred else 0
+            e_index = 0 if find_pred else 1
+            if x == x_index and self.elts[e_index]:
+                return e_index
+            return None
+
+            # if find_pred:
+            #     if x == 1 and self.elts[0] == 1:
+            #         return 0
+            #     return None
+            # else:
+            #     if x == 0 and self.elts[1] == 1:
+            #         return 1
+            #     return None
 
         offset = self.cluster[self.high(x)].__find_pred_succ(self.low(x), find_pred)
         if offset != None:
